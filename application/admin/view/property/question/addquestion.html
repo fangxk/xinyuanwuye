@@ -1,0 +1,97 @@
+<link rel="stylesheet" type="text/css" href="__CDN__/assets/xywy/css/vote/app.min.1.css">
+<link rel="stylesheet" type="text/css" href="__CDN__/assets/xywy/css/vote/app.min.2.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/font-awesome.min.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/animate.min.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/sweet-alert.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/weixiaoqu.css">
+<style>
+    #ribbon{display: none}
+</style>
+<section id="main">
+    <section id="content">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h2>
+                        <a href="javascript:history.go(-1)">
+                            <img src="__CDN__/assets/xywy/image/vote/left.png" height="30px">
+                        </a>
+                        添加问卷内容
+                    </h2>
+                </div>
+                <div class="hr-solid"></div>
+                <div class="card-body card-padding">
+                    <div class="topics-area">
+                        <div class="left-col">
+                            <div class="topics-title tixing">
+                                题型选择
+                            </div>
+                            <ul class="topics-type">
+                                <li class="topics-radio">
+                                    单选题
+                                </li>
+                                <li class="topics-checkbox">
+                                    多选题
+                                </li>
+                                <li class="topics-blank">
+                                    填空题
+                                </li>
+                            </ul>
+                        </div>
+                        <input type="hidden" id="nums" value="{$nums}">
+                        <div class="right-col">
+                            <div class="topics-title">{$item['title']}</div>
+                            <form method="post" class="add" action="" enctype="multipart/form-data" onsubmit="return check(this);">
+                                <div class="topics-box ui-sortable">
+                                    <div class="topics-init">
+                                        点击左侧题型，以添加题目到此空白区域
+                                    </div>
+                                </div>
+                                <div class="topics-foot">
+                                    <input type="submit" name="submit" value="保存" class="btn btn-primary c-white btn-w-m baoc">
+                                    <a href="javascript:history.go(-1)" class="btn btn-default btn-w-m m-l-10">返回</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<div class="page-opts"><a href="javascript:" class="up"><img src="__CDN__/assets/xywy/image/vote/return-top.png" alt="" height="50px">
+    <div class="opts-text">
+        回到<br>顶部
+    </div>
+</a><a href="javascript:" class="down"><img src="__CDN__/assets/xywy/image/vote/return-bot.png" alt="" height="50px">
+    <div class="opts-text">
+        回到<br>底部
+    </div>
+</a></div>
+<script src="__CDN__/assets/xywy/js/vote/jquery.min.js"></script>
+<script src="__CDN__/assets/xywy/js/vote/jquery-ui.min.js"></script>
+<script src="__CDN__/assets/xywy/js/vote/add_topics.js"></script>
+<script>
+    var ppp = {$nums};
+</script>
+<input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+<div>
+    <div class="sweet-overlay" tabindex="-1"></div>
+    <div class="sweet-alert" tabindex="-1">
+        <div class="icon error"><span class="x-mark"><span class="line left"></span><span class="line right"></span></span></div>
+        <div class="icon warning"><span class="body"></span> <span class="dot"></span></div>
+        <div class="icon info"></div>
+        <div class="icon success"><span class="line tip"></span> <span class="line long"></span>
+            <div class="placeholder"></div>
+            <div class="fix"></div>
+        </div>
+        <div class="icon custom"></div>
+        <h2>Title</h2>
+        <p class="lead text-muted">Text</p>
+        <p>
+            <button class="cancel btn btn-lg" tabindex="2">Cancel</button>
+            <button class="confirm btn btn-lg" tabindex="1">OK</button>
+        </p>
+    </div>
+</div>
+</form>

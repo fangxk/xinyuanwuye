@@ -1,0 +1,95 @@
+<link href="__CDN__/assets/xywy/css/vote/style.css" rel="stylesheet">
+<style>
+    #ribbon{display: none}
+</style>
+<script>
+    var nodeData = {:json_encode($nodeList);}
+</script>
+<div class="wrapper wrapper-content animated ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <!--action="/admin.php/property/question/questionshow/ids/{$voteid}"-->
+                    <form id="formdata" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-sm-6 m-b-xs">
+                                <!--<a class="btn btn-primary" href="{php echo $this->createWebUrl('vote', array('op' => 'add'));}"><i class="fa fa-plus"></i> 添加问卷</a>-->
+                            </div>
+                            <div class="col-sm-6 m-b-xs">
+                                <!--添加-->
+                                <div class="col-sm-7 m-b-xs" style="left: 20%;">
+                                    <h5 style="float: left;">{:__('所属区域')}:</h5>
+                                    <div class="col-xs-7 col-sm-7">
+                                        <span class="text-muted" style="margin-right: 10px"><input type="checkbox" name="" id="checkall" /> <label for="checkall"><small>{:__('Check all')}</small></label></span>
+                                        <span class="text-muted"><input type="checkbox" name="" id="expandall" /> <label for="expandall"><small>{:__('Expand all')}</small></label></span>
+                                        <div id="treeview"></div>
+                                    </div>
+                                    <input type="hidden" name="reginonid" value=""/>
+                                    <input type="hidden" name="ids" value="{$voteid}"/>
+                                    <!--<button type="button" class="btn btn-primary" id="sedata" style="margin-top: -6px;margin-left: -26px;">筛选项目</button>-->
+                                </div>
+                                <!--添加-->
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="keyword" value="{$keyword}" placeholder="输入问卷标题">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-primary" id="sedata"> 搜索</button>
+                                    </span>
+                                    &nbsp;&nbsp;
+                                    <span class="input-group-btn">
+                                        <button type="reset" class="btn btn-primary" id="all"><a href="/admin.php/property/question/questionshow/ids/{$voteid}" style="color: #fefeff">搜索全部</a></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <h5><a class="glyphicon glyphicon-arrow-left" href="/admin.php/property/question"></a>&nbsp;&nbsp;&nbsp;详细数据</h5>
+                    <h5 style="float: right"><a class="glyphicon glyphicon-refresh" href=""></a></h5>&nbsp;&nbsp;&nbsp;
+                    <h5 style="float: right;margin-right: 50px;"><a id="explord" data-ids="{$voteid}">点击导出数据</a></h5>
+                    <!--<h5 style="float: right;margin-right: 40px;"><a href="/admin.php/property/question/Questionshow/ids/{$voteid}/explort/1">导出数据</a></h5>-->
+                </div>
+                <div class="ibox-content">
+                    <form action="" class="form-horizontal form" method="post" enctype="multipart/form-data">
+                        <table class="table table-bordered">
+                            <thead class="navbar-inner">
+                            <tr>
+                                <th class="col-lg-2">问卷标题</th>
+                                <th>业主回答</th>
+                                <th>业主姓名</th>
+                                <th>业主电话</th>
+                                <th>业主地址</th>
+                                <th>微信昵称</th>
+                                <th>答题时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {foreach name="list" item="item" key="k" }
+                            <tr>
+                                <td>{$item['title']}</td>
+                                <td>{if $item['type'] == 3}{$item['content']}{else}{$item['answer']}{/if}</td>
+                                <td>{if $item['relaname']}{$item['relaname']}{else}{$item['nickname']}{/if}</td>
+                                <td>{$item['mobile']}</td>
+                                <td>{$item['house_name']}</td>
+                                <td>{$item['nickname']}</td>
+                                <td>{$item['createtime']|date="Y-m-d H:i",###}</td>
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </form>
+                    <table class="footable table table-stripped toggle-arrow-tiny footable-loaded tablet breakpoint">
+                        <thead>
+                        {if condition="!empty($list)"}
+                        <tr>
+                            <td class="footable-visible"><ul class="pagination pull-right">{$pager}</ul></td>
+                        </tr>
+                        {else}
+                        <tr style="text-align: center"><td >没有找到对应的记录</td></tr>
+                        {/if}
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

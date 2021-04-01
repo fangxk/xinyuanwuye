@@ -1,0 +1,32 @@
+[ 2020-10-10T10:58:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-10T10:58:22+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-10T10:58:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-10T10:58:58+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-10T10:58:58+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-10T10:58:58+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002000s ]
+[ 2020-10-10T10:58:58+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-10T18:21:38+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-10T18:21:38+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-10T18:21:38+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ 2020-10-10T18:21:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-10T18:22:26+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-10T18:22:26+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-10T18:22:26+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-10T18:22:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-10T18:22:36+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-10T18:22:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ 2020-10-10T18:22:52+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-10T18:22:52+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-10T18:22:52+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ 2020-10-10T18:22:52+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-10T18:23:30+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-10T18:23:30+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-10T18:23:30+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ 2020-10-10T18:23:30+08:00 ][ info ] [ DB ] INIT mysql

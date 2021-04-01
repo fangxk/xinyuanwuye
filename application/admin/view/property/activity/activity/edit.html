@@ -1,0 +1,138 @@
+<style>
+    .checkbox label{
+        width: 170px !important;
+    }
+    .city-picker-span{height: 40px !important;}
+    .checkbox label{
+        padding-left: 6px;
+    }
+    .checkbox-inline{
+        margin-left: 0px !important;
+    }
+    .city-picker-span{width: 600px !important;}
+    .city-picker-dropdown{width: 600px !important;}
+</style>
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <!--<div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Weigh')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-weigh" data-rule="required" class="form-control" name="row[weigh]" type="number" value="{$row.weigh|htmlentities}">
+        </div>
+    </div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Title')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text" value="{$row.title|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Desc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-desc" class="form-control" name="row[desc]" type="text" value="{$row.desc|htmlentities}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50">{$row.content|htmlentities}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Picimage')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-picimage" data-rule="required" class="form-control" size="50" name="row[picimage]" type="text" value="{$row.picimage|htmlentities}">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-picimage" class="btn btn-danger plupload" data-input-id="c-picimage" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-picimage"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-picimage" class="btn btn-primary fachoose" data-input-id="c-picimage" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-picimage"></span>
+            </div>
+            <span class="help-block">建议尺寸:345*135像素</span>
+            <ul class="row list-inline plupload-preview" id="p-picimage"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Num')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-num" class="form-control" name="row[num]" type="number" value="{$row.num|htmlentities}">
+            <span class="pointer" style="color: red;">默认-1为不限制人数</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Starttime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-starttime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[starttime]" type="text" value="{:$row.starttime?datetime($row.starttime):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Endtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-endtime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[endtime]" type="text" value="{:$row.endtime?datetime($row.endtime):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Signtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-signtime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[signtime]" type="text" value="{:$row.signtime?datetime($row.signtime):''}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Statusswitch')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input  id="c-statusswitch" name="row[statusswitch]" type="hidden" value="{$row.statusswitch}">
+            <a href="javascript:;" data-toggle="switcher" class="btn-switcher" data-input-id="c-statusswitch" data-yes="1" data-no="0" >
+                <i class="fa fa-toggle-on text-success {eq name="$row.statusswitch" value="0"}fa-flip-horizontal text-gray{/eq} fa-2x"></i>
+            </a>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">是否置顶:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="radio">
+                <label for="row[istop]">
+                    <input id="row[istop]" name="row[istop]" type="radio" {if $row['istop']}checked{/if} value="1" />是
+                </label>
+                <label for="row[istop]">
+                    <input id="row[istop]" name="row[istop]"  type="radio" value="0" {if empty($row['istop'])}checked{/if}/>否
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="radio">
+                {foreach name="statusList" item="vo"}
+                <label for="row[status]-{$key}"><input id="row[status]-{$key}" name="row[status]" type="radio" value="{$key}" {in name="key" value="$row.status"}checked{/in} /> {$vo}</label>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+    <!--添加-->
+    <input type="hidden" name="row[reginonid]" value=""/>
+    <!--添加组织结构-->
+    <div id="p1" {if $row['status']}style="display: none"{/if}">
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-2">{:__('所属区域')}:</label>
+            <div class="col-xs-12 col-sm-8">
+                <span class="text-muted"><input type="checkbox" name="" id="checkall" /> <label for="checkall"><small>{:__('Check all')}</small></label></span>
+                <span class="text-muted"><input type="checkbox" name="" id="expandall" /> <label for="expandall"><small>{:__('Expand all')}</small></label></span>
+
+                <div id="treeview"></div>
+            </div>
+        </div>
+    </div>
+    <!--添加组织结构-->
+    <!--添加-->
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+<script>
+    var nodeData = {:json_encode($nodeList);};
+</script>

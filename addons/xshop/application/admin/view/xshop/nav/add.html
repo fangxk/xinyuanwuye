@@ -1,0 +1,146 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Title')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-title" data-rule="required" class="form-control" name="row[title]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Description')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-description" data-rule="required" class="form-control" name="row[description]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('NavType')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-nav_type" data-rule="required" class="form-control" name="row[nav_type]">
+                <option value="0">轮播图</option>
+                <option value="1">导航</option>
+                <option value="2">广告</option>
+                <option value="3">分类展示</option>
+                <option value="4">通告</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <select id="c-type" data-rule="required" class="form-control" name="row[type]">
+                <option value="0" data-target="normal">无跳转</option>
+                <option value="1" data-target="product">跳转到商品</option>
+                <option value="2" data-target="category">跳转到分类</option>
+                <option value="3" data-target="router">跳转到页面</option>
+                <option value="6" data-target="tabbar">跳转到底部导航</option>
+                <option value="4" data-target="link">跳转到外部链接</option>
+                <option value="5" data-target="article">跳转到文章</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Target')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div id="target-render-content"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Image')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group">
+                <input id="c-image"  class="form-control" size="50" name="row[image]" type="text">
+                <div class="input-group-addon no-border no-padding">
+                    <span><button type="button" id="plupload-image" class="btn btn-danger plupload" data-input-id="c-image" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="true" data-preview-id="p-image"><i class="fa fa-upload"></i> {:__('Upload')}</button></span>
+                    <span><button type="button" id="fachoose-image" class="btn btn-primary fachoose" data-input-id="c-image" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> {:__('Choose')}</button></span>
+                </div>
+                <span class="msg-box n-right" for="c-image"></span>
+            </div>
+            <ul class="row list-inline plupload-preview" id="p-image"></ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">其他参数</label>
+        <div class="col-xs-12 col-sm-8">
+            <dl class="fieldlist" data-name="row[params]">
+                <dd>
+                    <ins>{:__('Array key')}</ins>
+                    <ins>{:__('Array value')}</ins>
+                </dd>
+                <dd><a href="javascript:;" class="btn btn-sm btn-success btn-append"><i class="fa fa-plus"></i> {:__('Append')}</a></dd>
+                <textarea name="row[params]" class="form-control hide" cols="30" rows="5"></textarea>
+            </dl>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sort')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-sort" class="form-control" name="row[sort]" type="number" value="10000">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Status')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                {:build_radios('row[status]', [1 => '正常', 0 => '隐藏'], 1)}
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>
+
+<script id="normal" type="text/html">
+    <div><span class="form-control">无</span>
+    <input id="c-target" name="row[target]" type="hidden" value="">
+    </div>
+</script>
+
+<script id="product" type="text/html">
+    <div class="input-group">
+        <input id="c-target_label" class="form-control" size="50" type="text" readonly>
+        <input type="hidden" id="c-target" data-rule="required" name="row[target]">
+        <div class="input-group-addon no-border no-padding">
+            <span><button type="button" id="btn-choose-product" class="btn btn-primary xshop-choose-product" data-label-id="c-target_label" data-input-id="c-target" data-preview-id="p-target" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> 选择</button></span>
+        </div>
+        <span class="msg-box n-right" for="c-product"></span>
+    </div>
+    <ul class="row list-inline" id="p-target"></ul>
+</script>
+
+<script id="category" type="text/html">
+    <div class="input-group">
+        <input id="c-target_label" class="form-control" size="50" type="text" readonly>
+        <input id="c-target" data-rule="required" name="row[target]" type="hidden">
+        <div class="input-group-addon no-border no-padding">
+            <span><button type="button" id="btn-choose-category" class="btn btn-primary xshop-choose-category" data-label-id="c-target_label" data-input-id="c-target" data-preview-id="p-target" data-multiple="false"><i class="fa fa-list"></i> 选择</button></span>
+        </div>
+        <span class="msg-box n-right" for="c-category"></span>
+    </div>
+    <ul class="row list-inline" id="p-target"></ul>
+</script>
+
+<script id="router" type="text/html">
+    <input class="form-control" data-rule="required" name="row[target]" placeholder="请输入页面地址" />
+</script>
+
+<script id="link" type="text/html">
+    <input class="form-control" data-rule="required" name="row[target]" placeholder="请输入URL链接" />
+</script>
+
+<script id="article" type="text/html">
+    <div class="input-group">
+        <input id="c-target_label" class="form-control" size="50" type="text" readonly>
+        <input id="c-target" data-rule="required" name="row[target]" type="hidden">
+        <div class="input-group-addon no-border no-padding">
+            <span><button type="button" id="btn-choose-article" class="btn btn-primary xshop-choose-article" data-label-id="c-target_label" data-input-id="c-target" data-preview-id="p-target" data-multiple="false"><i class="fa fa-list"></i> 选择</button></span>
+        </div>
+        <span class="msg-box n-right" for="c-article"></span>
+    </div>
+    <ul class="row list-inline" id="p-target"></ul>
+</script>
+
+<script id="tabbar" type="text/html">
+    <input class="form-control" data-rule="required" name="row[target]" placeholder="请输入底部导航链接,比如/pages/user/user" />
+</script>

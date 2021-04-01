@@ -1,0 +1,44 @@
+<link href="__CDN__/assets/xywy/css/vote/style.css" rel="stylesheet">
+<style>
+    #ribbon{display: none}
+</style>
+<div class="wrapper wrapper-content animated ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><a class="glyphicon glyphicon-arrow-left" href="/admin.php/property/question/suminfo/ids/<?php echo $question['voteid'];?>"></a>&nbsp;&nbsp;{$question['title']}</h5>
+                    <h5 style="float: right"><a class="glyphicon glyphicon-refresh" href=""></a></h5>
+                </div>
+                <div class="ibox-content">
+
+                        <table class="table table-bordered">
+                            <thead class="navbar-inner">
+                            <tbody>
+                            {foreach name="list" key="k" item="item"}
+                            <?php $j = $k+1 ?>
+                            <tr>
+                                <td style="width: 40px">{$j}</td>
+                                <td class="col-lg-2">{$item['content']}</td>
+                                <td>{:date('Y-m-d H:i:s',$item['createtime'])}</td>
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+
+                    <table class="footable table table-stripped toggle-arrow-tiny footable-loaded tablet breakpoint">
+                        <thead>
+                            {if $list}
+                                <tr>
+                                    <td class="footable-visible"><ul class="pagination pull-right">{$pager}</ul></td>
+                                </tr>
+                            {else}
+                                <tr style="text-align: center"><td >没有找到对应的记录</td></tr>
+                            {/if}
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

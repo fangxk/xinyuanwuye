@@ -1,0 +1,5 @@
+前端基于[mix.R开源的前端模板](https://ext.dcloud.net.cn/plugin?id=200)  
+后端基于[fastadmin](https://www.fastadmin.net)和[thinkphp5.0](http://thinkphp.cn)  
+[发布地址](https://www.fastadmin.net/store/xshop.html)  
+[社区](https://ask.fastadmin.net/zone/xshop.html)  
+[文档](https://doc.fastadmin.net/xshop.html)

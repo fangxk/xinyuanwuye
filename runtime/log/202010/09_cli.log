@@ -1,0 +1,45 @@
+[ 2020-10-09T14:15:01+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:15:01+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:15:01+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-09T14:15:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:15:40+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:15:40+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:15:40+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-09T14:15:40+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:16:41+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:16:41+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:16:41+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ 2020-10-09T14:16:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:17:33+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:17:33+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:17:33+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-09T14:17:33+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:18:03+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:18:03+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:18:03+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-09T14:18:03+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:19:27+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:19:27+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:19:27+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-09T14:19:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:22:55+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:22:55+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:22:55+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-10-09T14:22:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:23:17+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:23:17+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:23:17+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005000s ]
+[ 2020-10-09T14:23:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-10-09T14:24:23+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-10-09T14:24:23+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-10-09T14:24:23+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ 2020-10-09T14:24:23+08:00 ][ info ] [ DB ] INIT mysql

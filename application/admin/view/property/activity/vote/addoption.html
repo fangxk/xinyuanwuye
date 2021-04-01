@@ -1,0 +1,67 @@
+<link href="__CDN__/assets/xywy/css/vote/style.css" rel="stylesheet">
+<style>
+    #ribbon{display: none}
+</style>
+<div class="wrapper wrapper-content animated ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><a class="glyphicon glyphicon-arrow-left" href="/admin.php/property/activity/vote/showoption/ids/{$ids}"></a>&nbsp;&nbsp;&nbsp;投票项添加</h5>
+                    <!--<h5 style="float: right"><a class="glyphicon glyphicon-refresh" href=""></a></h5>-->
+                </div>
+                <div class="ibox-content">
+                    <form action="/admin.php/property/activity/vote/addoption/ids/{$ids}" class="form-horizontal form" method="post" enctype="multipart/form-data" id="form">
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">投票项序号</label>
+                            <div class="col-xs-5">
+                                <input type='number' name='row[sort]' id='title' class="form-control" value="1" placeholder="排序" />
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">投票项描述</label>
+                            <div class="col-xs-5">
+                                <input type='text' name='row[desc]' class="form-control" value="" placeholder="描述" />
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label for=""  class="col-sm-2 control-label">投票项内容</label>
+                            <div class="col-xs-5">
+                                <input type='text' name='row[content]' required="required"   class="form-control" placeholder="投票项内容" />
+                                <!--<textarea name="row[content]" required="required"  rows="5" class="form-control" maxlength="100"></textarea>-->
+                                <span class="help-block">最大可输入15个汉字</span>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">是否开启</label>
+                            <div class="col-xs-5">
+                                <div class="radio radio-success checkbox-inline">
+                                    <input type="radio" name="row[statusswitch]" id="allregion1" value="1"  checked="checked"/>
+                                    <label for="allregion1"> 是 </label>
+
+                                </div>
+                                <div class="radio radio-success radio-inline">
+                                    <input type="radio" name="row[statusswitch]" id="allregion2" value="0"/>
+                                    <label for="allregion2">否</label>
+                                </div>
+                            </div>
+                        </div>
+
+            <div class="form-group">
+                <label for="" class="col-sm-2 control-label"></label>
+                <div class="col-xs-5">
+                    <button type="submit" class="btn btn-primary btn-w-m" name="submit" id="submit" value="提交">提交</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+

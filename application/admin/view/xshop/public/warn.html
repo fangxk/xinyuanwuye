@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .warn-content {
+            width: 90%;
+            margin: 10px auto;
+            background: #F56C6C;
+            padding: 5px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .warn-content a {
+            color: rgb(100, 100, 189);
+        }
+        .warn-content ul, .warn-content li {
+            list-style: none;
+            text-align: left;
+        }
+        .warn-content table {
+            width: 100%;
+            font-size: 13px;
+        }
+        .warn-content table th {
+            font-size: 14px;
+            text-align: center;
+        }
+        .warn-content table td {
+            font-size: 13px;
+            padding: 5px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .warn-content .btn {
+            background: rgb(31, 25, 25);
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 2px 5px;
+        }
+        .warn-content .btn a {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="warn-content">
+    <h4>安装程序在执行以下SQL文件时发生错误，请尝试在 <a href="../addon">插件管理</a>  重新启用插件以解决该问题</h4>
+    <p>若您选择手动执行SQL，请在处理该问题后点击`忽略`</p>
+    <table>
+        <tr>
+            <th width="50">序号</th>
+            <th width="80">插件</th>
+            <th width="80">文件夹</th>
+            <th width="80">文件名</th>
+            <th>详情</th>
+            <th width="50">操作</th>
+        </tr>
+        {foreach name="err_files" id="vo" index="index"}
+        <tr>
+            <td class="text-center">{$index}</td>
+            <td class="text-center">{$vo['addon']}</td>
+            <td class="text-center">{$vo['dir']}</td>
+            <td>{$vo['name']}</td>
+            <td>
+                <ul>
+                    {foreach name="$vo.err_sqls" id="v"}
+                    <li>{$v['sql']}</li>
+                    {/foreach}
+                </ul>
+            </td>
+            <td>
+                <div class="btn">
+                    {php}$url = url('xshop/index/ignore', [
+                        'addon' => $vo['addon'],
+                        'dir' => $vo['dir'],
+                        'name' => $vo['name']
+                    ]);{/php}
+                    <a href="{$url}">忽略</a>
+                </div>
+            </td>
+        </tr>
+        {/foreach}
+    </table>
+</div>
+</body>
+</html>

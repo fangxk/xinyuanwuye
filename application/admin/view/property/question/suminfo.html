@@ -1,0 +1,82 @@
+<link href="__CDN__/assets/xywy/css/vote/style.css" rel="stylesheet">
+<style>
+    #ribbon{display: none}
+</style>
+<script>
+    var nodeData = {:json_encode($nodeList);}
+</script>
+<div class="wrapper wrapper-content animated ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style="overflow: hidden">
+                    <h5><a class="glyphicon glyphicon-arrow-left" href="/admin.php/property/question"></a>&nbsp;&nbsp;&nbsp;统计结果</h5>
+                    <!--添加-->
+                    <form id="formdata"  enctype="multipart/form-data" method="post">
+                        <div class="col-sm-5 m-b-xs">
+                            <!--<h5 style="float: left;margin-right: 50px;">{:__('所属区域')}:</h5>-->
+                            <div class="col-xs-4 col-sm-4">
+                                <span class="text-muted" style="margin-right: 10px"><input type="checkbox" name="" id="checkall" /> <label for="checkall"><small>{:__('Check all')}</small></label></span>
+                                <span class="text-muted"><input type="checkbox" name="" id="expandall" /> <label for="expandall"><small>{:__('Expand all')}</small></label></span>
+                                <div id="treeview"></div>
+                            </div>
+                            <input type="hidden" name="reginonid" value=""/>
+                            <button type="button" class="btn btn-primary" id="sedata" style="margin-top: -6px;margin-left: -26px;">筛选项目</button>
+                        </div>
+                    </form>
+                    <!--添加-->
+                    <h5 style="float: right;margin-right: 50px;"><a id="explord" data-ids="{$ids}">点击导出数据</a></h5>
+                    <!--<h5 style="float: right;margin-right: 50px;"><a href="/admin.php/property/question/suminfo/ids/{$ids}/explort/1">点击导出数据</a></h5>-->
+                </div>
+
+                <div class="ibox-content">
+                    {foreach name='list' item='item' key='k'}
+                    <?php $i = $k+1;?>
+                    {if $item['type'] ==3}
+                    <div>
+                        <div>
+                            <p><span style="color: black">第<?php echo $i;?>题：</span> {$item['title']} <span>&nbsp;&nbsp;[填空题]</span></p>
+                        </div>
+                        <div>
+                            <a href="/admin.php/property/question/showcontent?id=<?php echo $item['id'];?>" class="btn btn-large btn-primary">查看详细信息</a>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    {/if}
+                    {if $item['type'] == 1 || $item['type'] == 2}
+                    <div>
+                        <div>
+                            <p><span style="color: black">第<?php echo $i;?>题：</span> {$item['title']} <span>&nbsp;&nbsp;[{if $item['type']==1}单选题{else}多选题{/if}]</span></p>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead class="navbar-inner">
+                            <tr style="color: black">
+                                <th class="col-sm-2">选项</th>
+                                <th class="col-sm-1">小计</th>
+                                <th class="col-sm-9">比例</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {foreach name="item['options']" item="row"}
+                            <tr>
+                                <td>{$row['title']}</td>
+                                <td>{$row['num']}</td>
+                                <td>{$row['scale']}%</td>
+                            </tr>
+                            {/foreach}
+                            <tr style="color: black" class="active">
+                                <td>本题有效填写人次</td>
+                                <td colspan="2">{$item['total']}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    {/if}
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

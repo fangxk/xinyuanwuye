@@ -1,0 +1,127 @@
+<link rel="stylesheet" type="text/css" href="__CDN__/assets/xywy/css/vote/app.min.1.css">
+<link rel="stylesheet" type="text/css" href="__CDN__/assets/xywy/css/vote/app.min.2.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/font-awesome.min.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/animate.min.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/sweet-alert.css">
+<link rel="stylesheet" href="__CDN__/assets/xywy/css/vote/weixiaoqu.css">
+<style>
+    #ribbon{display: none}
+</style>
+<section id="main">
+    <section id="content">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <!--javascript:history.go(-1)-->
+                    <h2><a href="/admin.php/property/question">
+                        <img src="__CDN__/assets/xywy/image/vote/left.png" height="30px"></a>添加问卷内容</h2>
+                </div>
+                <div class="hr-solid"></div>
+                <div class="card-body card-padding">
+                    <div class="topics-area">
+                        <div class="left-col">
+                            <div class="topics-title tixing">
+                                题型选择
+                            </div>
+                            <ul class="topics-type">
+                                <li class="topics-radio">
+                                    单选题
+                                </li>
+                                <li class="topics-checkbox">
+                                    多选题
+                                </li>
+                                <li class="topics-blank">
+                                    填空题
+                                </li>
+                            </ul>
+                        </div>
+                        <input type="hidden" id="nums" value="{$nums}">
+                        <div class="right-col">
+                            <div class="topics-title">{$item['title']}</div>
+                            <form method="post" class="add" action="" enctype="multipart/form-data" onsubmit="return check(this);">
+                                <div class="topics-box ui-sortable">
+                                    <div class="topics-init none" style="">
+                                        点击左侧题型，以添加题目到此空白区域
+                                    </div>
+                                    {foreach name='list' item='li'}
+                                    <div class="question-item" data-ppp="{$li['num']}" data-type="{if $li['type'] == 1}topics-radio{elseif $li['type'] == 2}topics-checkbox{elseif $li['type'] == 3}topics-blank{/if}">
+                                        <div class="question-title"><span>Q<i class="qs-index">{$li['sort']}</i>
+                                            <div class="qs-title">{$li['title']}</div>
+                                            <div class="topics-desc">{$li['remark']}</div>
+                                            {if $li['type'] == 2}
+                                                <div class="qs-max">{$li['maxnum']}</div>
+                                            {/if}
+                                            <input name="timu[{$li['num']}][title]" type="hidden" value="{if $li['title']}{$li['title']}{elseif $li['type'] == 1}单选题{elseif $li['type'] == 2}多选题{elseif $li['type'] == 3}填空题{/if}" class="se_timu">
+                                            <input name="timu[{$li['num']}][type]" value="{if $li['type'] == 1}1{elseif $li['type'] == 2}2{elseif $li['type'] == 3}3{/if}" type="hidden" class="se_type">
+                                            <input name="timu[{$li['num']}][id]" value="{$li['id']}" type="hidden">
+                                            <input name="timu[{$li['num']}][i_desc]" value="{$li['remark']}" type="hidden" class="se_desc">
+                                            <input name="timu[{$li['num']}][i_max]" value="{$li['maxnum']}" type="hidden" class="se_max"></div>
+                                        <ul class="question-choice">
+                                            {foreach name="li['options']" item="opt"}
+                                            {if $li['type'] == 1}
+                                            <li>
+                                                <div class="choice-info"><i class="choice-icon"></i>
+                                                    <div class="choice-item">
+                                                        <div class="choice-text"><label>{$opt['title']}</label><span></span></div>
+                                                    </div>
+                                                </div>
+                                                <input name="list[{$li['num']}][]" type="hidden" class="se_an" value="{$opt['title']}">
+                                                <input name="lists[{$li['num']}][]" type="hidden" value="{$opt['id']}">
+                                            </li>
+                                            {elseif $li['type'] == 2}
+                                            <li>
+                                                <div class="choice-info"><i class="choice-icon"></i>
+                                                    <div class="choice-item">
+                                                        <div class="choice-text"><label>{$opt['title']}</label><span></span></div>
+                                                    </div>
+                                                </div>
+                                                <input name="list[{$li['num']}][]" type="hidden" class="se_an" value="{$opt['title']}">
+                                                <input name="lists[{$li['num']}][]" type="hidden" value="{$opt['id']}">
+                                            </li>
+                                            {elseif $li['type'] == 3}
+                                            <li>
+                                                <div class="choice-item">
+                                                    <input name="" readonly="" type="text" class="form-control-k" value="0000">
+                                                </div>
+                                            </li>
+                                            {/if}
+                                            {/foreach}
+                                        </ul>
+                                        <div class="question-operate">
+                                            <ul>
+                                                <li title="移动" class="qs-move"><span>移动<span></span></span></li>
+                                                <li title="操作" class="qs-handle"><span>操作<span></span></span></li>
+                                               <!-- <li title="删除" class="qs-delete"><span>删除<span></span></span></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {/foreach}
+                                </div>
+                                <div class="topics-foot">
+                                    <input type="submit" name="submit" value="保存" class="btn btn-primary c-white btn-w-m baoc">
+                                    <a href="javascript:history.go(-1)" class="btn btn-default btn-w-m m-l-10">返回</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<div class="page-opts"><a href="javascript:" class="up"><img src="__CDN__/assets/xywy/image/vote/return-top.png" height="50px">
+    <div class="opts-text">
+        回到<br>顶部
+    </div>
+</a><a href="javascript:" class="down"><img src="__CDN__/assets/xywy/image/vote/return-bot.png" alt="" height="50px">
+    <div class="opts-text">
+        回到<br>底部
+    </div>
+</a></div>
+<script src="__CDN__/assets/xywy/js/vote/jquery.min.js"></script>
+<script src="__CDN__/assets/xywy/js/vote/jquery-ui.min.js"></script>
+<script src="__CDN__/assets/xywy/js/vote/add_topics.js"></script>
+<script>
+    var ppp = {$nums};
+</script>
+</form>

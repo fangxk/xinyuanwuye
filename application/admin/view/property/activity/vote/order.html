@@ -1,0 +1,100 @@
+<link href="__CDN__/assets/xywy/css/vote/style.css" rel="stylesheet">
+<style>
+    #ribbon{display: none}
+</style>
+<div class="wrapper wrapper-content animated ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5><a class="glyphicon glyphicon-arrow-left" href="/admin.php/property/activity/vote"></a>&nbsp;&nbsp;&nbsp;投票管理</h5>
+                    <h5 style="float: right"><a class="glyphicon glyphicon-refresh" href=""></a></h5>
+                    <h5 style="float: right;margin-right: 50px;"><a href="/admin.php/property/activity/vote/areport/ids/{$ids}/explort/1">点击导出数据</a></h5>
+                </div>
+                <div class="ibox-content">
+                    <form action="/admin.php/property/activity/vote/areport/ids/{$ids}" method="get" class="form-horizontal" role="form">
+                    <div class="row">
+                        <div class="col-sm-12 m-b-xs">
+                            <div class="input-group">
+                                <input class="form-control" name="keyword" id="" type="text" value="{$keyword}" placeholder="输入微信昵称或真实姓名">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary"> 搜索</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+
+    <form action="/admin.php/property/activity/vote/areport/ids/{$ids}" method="post">
+        <input type="hidden" name="op" value="delete" />
+            <table class="table table-bordered">
+                <thead class="navbar-inner">
+                    <tr>
+                        <th style="width:5%;">
+                            <div class="checkbox checkbox-success checkbox-inline"><input type="checkbox" id="checkids"
+                                       onclick="var ck = this.checked;$(':checkbox').each(function(){this.checked = ck});">
+                                <label for="checkids"> </label>
+                            </div>
+                        </th>
+                        <th style="width:20%;">投票标题</th>
+                        <th style="width:10%;">投票记录</th>
+                        <th style="width:10%;">微信昵称</th>
+                        <th style="width:10%;">姓名</th>
+                        <th style="width:15%;">电话</th>
+                        <th style="width:15%;">地址</th>
+                        <th style="width:15%;">投票时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach name="list" item="item"}
+                    <tr>
+                        <td>
+                            <div class="checkbox checkbox-success checkbox-inline">
+                                <input type="checkbox" type="checkbox" name="uids[]" id="ids_{$item['id']}" value="{$item['id']}">
+                                <label for="ids_{$item['id']}"></label>
+                            </div>
+                        </td>
+                        <td>{$item['title']}</td>
+                        <td>{$item['optiontitle']}</td>
+                        <td>{$item['nickname']}</td>
+                        <td>{$item['relaname']}</td>
+                        <td>{$item['mobile']}</td>
+                        <td>{$item['address']}</td>
+                        <td>{$item['createtime']|date='Y-m-d H:i',###}</td>
+                    </tr>
+                    {/foreach}
+
+                </tbody>
+            </table>
+        <table class="footable table table-stripped toggle-arrow-tiny footable-loaded tablet breakpoint">
+            <thead>
+            {if condition="!empty($list)"}
+                <tr>
+                    <td>
+                        <input type="submit" name="delete" value="批量删除" class="btn btn-danger btn-sm" />
+                        <!--<button type="submit" name="export" value="1" class="btn btn-primary btn-sm">导出名单</button>-->
+                    </td>
+                    <td class="footable-visible"><ul class="pagination pull-right">{$pager}</ul></td>
+                </tr>
+            {else/}
+                <tr style="text-align: center"><td >没有找到对应的记录</td></tr>
+            {/if}
+            </thead>
+        </table>
+    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(function() {
+     $("#checkAll").click(function() {
+        var checked = $(this).get(0).checked;
+        var group = $(this).data('group');
+        $("#select[data-group='" +group + "']").each(function(){
+            $(this).get(0).checked = checked;
+        })
+     });
+});
+</script>

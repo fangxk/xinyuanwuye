@@ -1,0 +1,80 @@
+<link href="__CDN__/assets/xywy/css/vote/style.css" rel="stylesheet">
+<style>
+    #ribbon{display: none}
+</style>
+<div class="wrapper wrapper-content animated ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <!--<ul class="nav nav-tabs">
+                        <li class="active"><a href="" title="管理投票项">管理投票项</a></li>
+                    </ul>-->
+                    <div class="ibox-title">
+                        <h5><a class="glyphicon glyphicon-arrow-left" href="/admin.php/property/activity/vote"></a>&nbsp;&nbsp;&nbsp;投票项添加</h5>
+                        <h5 style="float: right"><a class="glyphicon glyphicon-refresh" href=""></a></h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form action="/admin.php/property/activity/vote/showoption/ids/{$ids}" method="post" class="form-horizontal" role="form">
+                            <div class="row">
+                                <div class="col-sm-6 m-b-xs">
+                                    <a class="btn btn-primary" href="/admin.php/property/activity/vote/addoption/ids/{$ids}"><i class="fa fa-plus"></i> 添加投票选项</a>
+                                </div>
+                                <div class="col-sm-6 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="keyword" value="{$keyword}" placeholder="请您输入投票项标题">
+                                        <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary">搜索</button>
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form action="" class="form-horizontal form" method="post" enctype="multipart/form-data">
+                            <table class="table table-bordered">
+                                <thead class="navbar-inner">
+                                <tr>
+                                    <th>权重</th>
+                                    <th class="col-lg-3">投票标题</th>
+                                    <th class="col-lg-3">投票选项内容</th>
+                                    <th>投票选项添加时间</th>
+                                    <th>是否启用</th>
+                                    <th >操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {foreach name="list" item="item"}
+                                <tr>
+                                 <td>{$item['sort']}</td>
+                                <td>{$item['title']}</td>
+                                <td>{$item['content']}</td>
+                                <td>{$item['createtime']|date="Y-m-d H:i",###}</td>
+                                <td>{if $item['statusswitch']}开启{else}关闭{/if}</td>
+                                <td>
+                                    <span>
+                                        <a href="/admin.php/property/activity/vote/editoption/id/{$item['id']}" title="编辑" class="btn btn-warning btn-sm">编辑</a>
+                                        <a onclick="return confirm('此操作不可恢复，确认吗？'); return false;" href="/admin.php/property/activity/vote/optiondel/id/{$item['id']}" class="btn btn-default btn-sm" data-original-title="删除">删除</a>
+                                    </span>
+                                </td></tr>
+                                {/foreach}
+                                </tbody>
+                            </table>
+                        </form>
+                        <table class="footable table table-stripped toggle-arrow-tiny footable-loaded tablet breakpoint">
+                            <thead>
+                            {if condition="!empty($list)"}
+                            <tr>
+                                <td class="footable-visible"><ul class="pagination pull-right">{$pager}</ul></td>
+                            </tr>
+                            {else/}
+                            <tr style="text-align: center"><td >没有找到对应的记录</td></tr>
+                            {/if}
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
